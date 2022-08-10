@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+ 
+        <script>
+        let n1 = parseFloat(window.prompt("Digite um numero"));
+        let op1 = window.prompt("Digite a operação");
+        let n2 = parseFloat(window.prompt("Digite outro numero"));
+        let op2 = window.prompt("Digite a operação");
+        let n3 = parseFloat(window.prompt("Digite outro numero"));
+
+        var resultado = 0
+        switch (op1){
+        case '+':
+            resultado = n1 + n2
+            break
+        case '-':
+            resultado = n1 - n2
+            break
+        case '*':
+            resultado = n1 * n2
+            break
+        case '/':
+            resultado = n1 / n2
+            break
+        
+        }
+
+        switch (op2){
+        case '+':
+            resultado += n3
+            break
+        case '-':
+            resultado -= n3
+            break
+        case '*':
+            resultado *= n3
+            break
+        case '/':
+            resultado /= n3
+            break
+        
+        }
+
+        
+
+        window.alert(resultado);
+
+    </script>
+ 
+
+
+</body>
+</html>
