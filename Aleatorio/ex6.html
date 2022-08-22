@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Construa uma página web para exibir no corpo da página (document.write) um número
+aleatório entre N e M, onde N e M deverão ser informados pelo usuário.
+-->
+<script>
+
+    var num = new Array(6);
+    var n, x;
+
+    for (let i = 0; i < 6; i++) {
+        
+        n = parseInt(Math.random()*(6)+1);
+
+        // Se for repetido retorna verdadeiro;
+        while(testaRepetidos(n)){ 
+            n = parseInt(Math.random()*(6)+1); 
+        }
+        
+        num[i] = n;
+        
+    }
+
+   
+    for(let j = 0; j < 6; j++) {
+
+        
+        document.write(`<div>${num[j]}</div> `);
+        
+    }
+
+    
+function testaRepetidos(n){
+    for (let x = 0; x < 6; x++) {
+        if(num[x] == n)
+              return true; // Se for repetido retorna verdadeiro;
+       
+    }
+
+}
+
+</script>
+
+<body>
+    
+</body>
+</html>

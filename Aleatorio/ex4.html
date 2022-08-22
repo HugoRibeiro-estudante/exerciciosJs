@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Construa uma página web para exibir no corpo da página (document.write) um número
+aleatório entre N e M, onde N e M deverão ser informados pelo usuário.
+-->
+<script>
+
+
+    n = parseInt(window.prompt("Números aleatótios - valor minimo : "));
+    m = parseInt(window.prompt("Números aleatótios - valor máximo : "));
+    document.write("Numero aleatório : "+ parseInt(Math.random()*(m - n+1)+ n));
+
+
+</script>
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Você irá participar de um evento organizado pela empresa Google e você, juntamente com os
+seus colegas, irão de ônibus para ele. O guia da excursão precisa saber a idade média dos
+passageiros e sortear o nome de uma pessoa para ganhar o almoço na primeira parada do
+ônibus. Proponha uma solução web, utilizando JavaScript, para resolver esse problema-->
+<script>
+
+    n = parseInt(window.prompt("Dados de quantos aluno serão preenchidos ? "));
+    var nomes = new Array();
+    var idades = new Array();
+    var media = 0;
+
+    for (let i = 1; i <= n ; i++) {
+
+        nomes[i] = window.prompt("Digite o nome do "+i+"° aluno :");
+        idades[i] = parseFloat(window.prompt("Digite a idade do "+i+"° aluno :"));
+        media = parseFloat(media + idades[i]);
+        
+    }
+    
+    alert("A média das idades do alunos é de "+(media/n).toFixed(1)+" anos");   
+    alert("O aluno sorteado foi "+nomes[parseInt(Math.random()*(n + 1))+1]);   
+    
+
+</script>
+
+<body>
+    
+</body>
+</html>

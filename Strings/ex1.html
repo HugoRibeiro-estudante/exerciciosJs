@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+
+    nome = prompt("Qual o seu nome?");
+    sobrenome = prompt("Qual o seu sobrenome ?");
+    n = prompt("Quantas vezes sera escrito seu nome ?");
+    color = prompt("Qual a cor ?  (inglês)");
+    
+
+    for (i=1; i<=n; i++){
+    
+    if(i % 2 == 0){
+    document.write("<p style='color:"+color+"'>"+ i +" - "+ nome +" "+ sobrenome +"</p>");
+    }else{
+    document.write("<p>"+ i +" - "+ nome +" "+ sobrenome +"</p>");
+    }
+
+    }
+</script>
+
+<body>
+    
+</body>
+</html>

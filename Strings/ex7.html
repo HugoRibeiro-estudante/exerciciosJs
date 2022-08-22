@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Construa uma página web capaz de solicitar um texto e uma letra e informar no corpo do
+documento apenas as palavras iniciadas com a letra informada (deve haver um espaço entre
+as palavras).-->
+<script type="text/javascript">
+    
+    let text = prompt("Insira um texto : ");
+    let letter = prompt("Insira uma letra : ");
+    text = text.split(" ");
+
+    for ( i = 0; i <= text.length; i++) {
+        if(text[i].charAt(0).toLowerCase() === letter.toLowerCase())
+        document.write(text[i]+" ");
+    }
+</script>
+
+<body>
+    
+</body>
+</html>

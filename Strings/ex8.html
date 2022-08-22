@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Construa uma página web capaz de solicitar um texto ao usuário e imprimir no corpo do
+documento todas as palavras iniciadas com a letra ‘a’, seguidas das palavras iniciadas com a
+letra ‘b’, e assim sucessivamente.-->
+<script type="text/javascript">
+    
+    let text = prompt("Insira um texto : ");
+    text = text.split(" ");
+
+
+    for ( i = 0; i <= text.length; i++) {
+   
+        document.write(`<p>Palavras iniciadas com a letra ${text[i].charAt(0)}</p>`);
+
+                document.write(`
+                
+                <li>${text[i]}</li>
+                        
+                `);
+
+          
+        }
+
+        
+        
+    
+</script>
+
+<body>
+    
+</body>
+</html>
