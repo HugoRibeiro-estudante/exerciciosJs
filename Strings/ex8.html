@@ -11,21 +11,23 @@ documento todas as palavras iniciadas com a letra ‘a’, seguidas das palavras
 letra ‘b’, e assim sucessivamente.-->
 <script type="text/javascript">
     
-    let text = prompt("Insira um texto : ");
+    let text = prompt("Insira um texto : ", "hugo huginho ribeiro ribeirinho");
     text = text.split(" ");
 
-
     for ( i = 0; i <= text.length; i++) {
-   
+        
         document.write(`<p>Palavras iniciadas com a letra ${text[i].charAt(0)}</p>`);
 
-                document.write(`
-                
-                <li>${text[i]}</li>
-                        
-                `);
+        document.write(`<li>${text[i]}</li>`);
+        
+        for (let j = 1; j < text.length; j++) {
+            
+            if(text[i].charAt(0) == text[j].charAt(0))
+                document.write(`<li>${text[j]}</li>`);
+            
 
-          
+        }
+                          
         }
 
         

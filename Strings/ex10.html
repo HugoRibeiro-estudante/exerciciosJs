@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Construa uma página web capaz de solicitar ao usuário um valor inteiro positivo maior ou
+igual 2 e, em seguida, a partir do número lido, exiba uma tabela no corpo do documento da página, conforme mostrado no exemplo a seguir, contendo os valores de 0 (zero) até o
+número informado pelo usuário nos seguintes sistemas de numeração: decimal, binário e
+hexadecimal.-->
+<script type="text/javascript">
+    
+    let n = 0;
+
+    do{
+        n = prompt("Insira número maior que um :", 32);
+    }while(n < 1);
+ 
+    
+
+    document.write(`<table>
+        <tr>
+        <th>Base decimal</th>
+        <th>Base binária</th>
+        <th>Base Hexadecimal</th>
+        </tr>`);
+
+    
+    
+    for (var i = 0; i <= n; i++) {
+       
+        document.write(`<tr><td>${i}</td>`);
+        
+        document.write(`<td>${binario(i)}</td>`);
+
+        document.write(`<td>${hexa(i)}</td>`);
+        
+        document.write(`</tr>`);
+
+    }
+    
+    document.write(`</table>`);
+
+
+
+
+
+
+
+    function binario(x){
+            
+        let nBinario = x;
+        var nString = '';
+
+        (nBinario % 2 == 1 ? nString = '1' : nString = '0')
+            
+
+        while( nBinario != 0) {
+            nBinario = parseInt(nBinario / 2);
+
+            nString = (nBinario % 2) + nString;
+        }
+
+        return nString;
+    }
+
+    
+    function hexa(y){
+            
+            let nHexa = y;
+            var stringH = '';
+            var sobra;
+       
+            while( nHexa > 15  ) {
+
+                sobra = parseInt(nHexa % 16);
+                nHexa = parseInt(nHexa / 16);
+
+                if( nHexa > 15){
+                
+                stringH = sobra + stringH;
+
+                }else if(nHexa > 9 && nHexa < 16){
+                    
+                    switch(nHexa){
+
+                    case 10 : sobra = 'A'; break;
+                    case 11 : sobra = 'B'; break;
+                    case 12 : sobra = 'C'; break;
+                    case 13 : sobra = 'D'; break;
+                    case 14 : sobra = 'E'; break;
+                    case 15 : sobra = 'F'; break;
+                    
+                    }
+                
+                stringH = sobra + stringH;                   
+
+                }
+
+
+                switch(sobra){
+
+                    case 10 : sobra = 'A'; break;
+                    case 11 : sobra = 'B'; break;
+                    case 12 : sobra = 'C'; break;
+                    case 13 : sobra = 'D'; break;
+                    case 14 : sobra = 'E'; break;
+                    case 15 : sobra = 'F'; break;
+
+                }
+
+            }
+
+
+            
+            if(nHexa < 10)
+                return nHexa;
+            else if(nHexa > 9 && nHexa < 16)
+                return sobra;
+            else                
+                return stringH;
+
+        }
+        
+</script>
+
+<style>
+
+    tr, td, th{
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+</style>
+
+<body>
+    
+</body>
+</html>

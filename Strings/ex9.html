@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Construa uma página web capaz de solicitar um texto e informar através de uma mensagem
+de alerta se o texto informado é um palíndromo.-->
+<script type="text/javascript">
+    
+    let text = prompt("Insira um texto : ", "a base do teto desaba").toLowerCase();
+    let reverse = text;
+    text = text.split("");
+    reverse = reverse.split("");
+
+    // console.log(text);
+    // console.log(reverse);
+
+    do{
+        
+        index = text.indexOf(" ");
+        if(index > -1)
+        text.splice(index, 1);
+
+    }while (index != -1);
+    
+    
+
+    do{
+        
+        index = reverse.indexOf(" ");
+        if(index > -1)
+        reverse.splice(index, 1);
+    
+    }while (index != -1);
+        
+
+    
+
+    reverse = reverse.reverse();
+    reverse = reverse.join();
+    text = text.join();
+    
+    // console.log(text);
+    // console.log(reverse);
+
+    text == reverse ? alert("é uma texto Políndromo") : alert("Não é uma texto Políndromo");
+        
+    
+</script>
+
+<body>
+    
+</body>
+</html>

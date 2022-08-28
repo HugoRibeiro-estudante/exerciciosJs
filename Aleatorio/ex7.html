@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    
+    n = parseInt(Math.random()*(6)+1);
+    document.write("<div id='dado'>");
+        
+        for(var i = 0; i < n; i++){
+            document.write("<div class='bolinha'></div>");
+        }
+
+    document.write("</div>");
+
+    classe = document.getElementsById("dado").style;
+        
+    switch(n){
+        case 1: classe.style.justifyContent ="center"; break;
+        
+
+    }
+
+</script>
+
+<style>
+
+    #dado{
+        padding: 30px;
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        border-radius: 30px;
+        display: flex;
+        
+    }
+
+    .bolinha{
+
+        background-color: rgb(185, 10, 10);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+
+
+
+</style>
+
+<body>
+    
+</body>
+</html>
