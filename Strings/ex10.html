@@ -71,54 +71,53 @@ hexadecimal.-->
             
             let nHexa = y;
             var stringH = '';
-            var sobra;
+            let sobra;
+
        
-            while( nHexa > 15  ) {
+            while(nHexa > 15) {
 
-                sobra = parseInt(nHexa % 16);
+                
                 nHexa = parseInt(nHexa / 16);
+                sobra = parseInt(nHexa % 16);
 
-                if( nHexa > 15){
-                
-                stringH = sobra + stringH;
+                if(sobra > 9 && sobra < 16){
 
-                }else if(nHexa > 9 && nHexa < 16){
-                    
-                    switch(nHexa){
+                    switch(sobra){
 
-                    case 10 : sobra = 'A'; break;
-                    case 11 : sobra = 'B'; break;
-                    case 12 : sobra = 'C'; break;
-                    case 13 : sobra = 'D'; break;
-                    case 14 : sobra = 'E'; break;
-                    case 15 : sobra = 'F'; break;
-                    
+                    case 10 : stringH += 'A'; break;
+                    case 11 : stringH += 'B'; break;
+                    case 12 : stringH += 'C'; break;
+                    case 13 : stringH += 'D'; break;
+                    case 14 : stringH += 'E'; break;
+                    case 15 : stringH += 'F'; break;
+
+
                     }
+                }
+
+                if(nHexa % 16 == 0 ){
+
                 
-                stringH = sobra + stringH;                   
+                stringH = stringH + parseInt(nHexa / 16)+ '0'; 
 
-                }
+                }   
 
 
-                switch(sobra){
-
-                    case 10 : sobra = 'A'; break;
-                    case 11 : sobra = 'B'; break;
-                    case 12 : sobra = 'C'; break;
-                    case 13 : sobra = 'D'; break;
-                    case 14 : sobra = 'E'; break;
-                    case 15 : sobra = 'F'; break;
-
-                }
+                stringH = sobra + stringH; 
 
             }
+
+           
+                
+                //alert(nHexa); 
+
+            
 
 
             
             if(nHexa < 10)
                 return nHexa;
-            else if(nHexa > 9 && nHexa < 16)
-                return sobra;
+            //     return nHexa;
             else                
                 return stringH;
 

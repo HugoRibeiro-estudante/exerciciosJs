@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    *{
+        text-align: center;
+    }
+
+    div, input{
+
+        display: flex;
+        justify-content: center;    
+        
+    }
+
+    form{
+
+        background-color: aquamarine;
+        border: 1px solid black;
+        padding: 20px;
+    }
+
+    .op{
+
+        margin: 10px;
+        gap: 10px;
+    }
+
+
+
+
+</style>
+
+
+<script>
+
+    function calc(op){
+
+        
+        let valor1 = parseFloat(document.querySelector("#valor1").value); 
+        let valor2 = parseFloat(document.querySelector("#valor2").value); 
+       
+        if( isNaN(valor1) || isNaN(valor2))
+            alert("Preencha os dois valores");
+        else{
+
+            let resultado;
+            switch(op){
+
+                case '+': resultado = parseFloat(valor1 + valor2) ;break;
+                case '-': resultado = parseFloat(valor1 - valor2) ;break;
+                case '*': resultado = parseFloat(valor1 * valor2) ;break;
+                case '/': 
+                if(valor2 == 0){
+
+                    alert("Não é possivel dividir por 0");
+                    resultado = "";
+
+                }else
+                    resultado = parseFloat(valor1 / valor2);
+
+            }
+
+            document.querySelector("#resultado").value = resultado;
+
+
+        }
+
+      
+    }
+
+</script>
+
+<body>
+    <h2>Calculadora</h2>
+
+    <div>
+        <form>
+            <label> valor 1:</label>
+            <input type="text" id="valor1">
+            <label>valor 2:</label>
+            <input type="text"  id="valor2">
+            <div class="op">
+                <input type="button" value="+" onclick="calc(this.value)">
+                <input type="button" value="-" onclick="calc(this.value)">
+                <input type="button" value="*" onclick="calc(this.value)">
+                <input type="button" value="/" onclick="calc(this.value)">
+            </div>
+            <input type="text"  id="resultado">
+        </form>
+    </div>
+
+</body>
+</html>

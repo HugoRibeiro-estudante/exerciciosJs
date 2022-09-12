@@ -15,12 +15,15 @@ letra ‘b’, e assim sucessivamente.-->
     text = text.split(" ");
 
     for ( i = 0; i <= text.length; i++) {
+
+        
+        
         
         document.write(`<p>Palavras iniciadas com a letra ${text[i].charAt(0)}</p>`);
 
         document.write(`<li>${text[i]}</li>`);
         
-        for (let j = 1; j < text.length; j++) {
+        for (let j = i+1; j < text.length; j++) {
             
             if(text[i].charAt(0) == text[j].charAt(0))
                 document.write(`<li>${text[j]}</li>`);

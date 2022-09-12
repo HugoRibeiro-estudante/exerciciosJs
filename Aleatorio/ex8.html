@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<!--Implemente o jogo Joquempô (“Pedra”, “Papel” ou “Tesoura”). A sua solução deverá gerar
+automaticamente, após o carregamento da página, a opção de cada jogador (“Pedra”, “Papel”
+ou “Tesoura”) e mostrar quem foi o ganhador (JOGADOR 1 ou JOGADOR 2). DESAFIO:
+Mostrar a imagem da “mãozinha” sorteada de cada jogador.-->
+<script>
+    let Arr = ["pedra","papel","tesoura"];
+    let playerOne = Arr[parseInt(Math.random()*(3))];
+    let playerTwo = Arr[parseInt(Math.random()*(3))];
+    
+    document.write(`<h1 align="center">Jogo Pedra, Papel e Tesoura</h1><hr>`);
+    document.write(`<div style='display: flex; justify-content: center; text-align: center'>`);
+    document.write("<div><p>Foi sorteado para o jogador 1 :</p>")
+    document.write("<img src='img/"+playerOne+".jpg'>");
+
+    document.write("<p>Foi sorteado para o jogador 2 :</p>")
+    document.write("<img src='img/"+playerTwo+".jpg'></div>");
+    document.write("</div>");
+
+    if( playerOne == "pedra" ){
+
+        if(playerTwo == "papel"){
+            
+            alert("Player 2 ganhou");
+
+        }else if( playerTwo == "tesoura"){
+
+            alert("Player 1 ganhou");
+        }else{
+
+            alert("Empate");
+        }
+
+    }else if(playerOne == "papel"){
+
+        if(playerTwo == "pedra"){
+            
+            alert("Player 1 ganhou");
+
+        }else if( playerTwo == "tesoura"){
+
+        alert("Player 2 ganhou");
+
+        }else{
+
+        alert("Empate");
+
+        }
+    }else if(playerOne == "tesoura"){
+        
+        if(playerTwo == "pedra"){
+            
+            alert("Player 2 ganhou");
+
+        }else if( playerTwo == "papel"){
+
+            alert("Player 1 ganhou");
+
+        }else{
+
+            alert("Empate");
+        }
+
+    }
+
+    
+
+</script>
+
+
+
+<body>
+    
+</body>
+</html>

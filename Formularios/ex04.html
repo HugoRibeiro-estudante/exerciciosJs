@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<script>
+
+    function calc(){
+
+        
+        let nota1 = parseInt(document.querySelector("#primeiro").value); 
+        let nota2 = parseInt(document.querySelector("#segundo").value); 
+        let notaFinal = nota1 + nota2;
+        (notaFinal >= 60 ? alert(`Você foi APROVADO com ${notaFinal} pontos !`) : alert(`Você foi REPROVADO, faltaram ${60 - notaFinal} pontos !`))
+       
+
+    }
+
+</script>
+
+<body>
+
+    <form >
+        <label>Notas (1° bimestre):</label>
+        <input type="text" name="" id="primeiro"></form><br>
+        <label>Notas (2° bimestre):</label>
+        <input type="text" name="" id="segundo"><br>
+        <input type="button" value="Resultado" onclick="calc()">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+
+    function calc(){
+
+        document.querySelector("#dobrado").value  = parseInt(document.querySelector("#valor").value) *2;
+        
+
+    }
+
+   
+
+</script>
+
+<body>
+
+    <form action="">
+        <label for="valor">Digite um valor:</label>
+        <input type="text" name="" id="valor"><br>
+        <input type="button" value="Mostrar o dobro" onclick="calc()"><br>
+        <label for="dobrado">O dobro do valor:</label>
+        <input type="text" name="" id="dobrado"></form>
+    
+</body>
+</html>

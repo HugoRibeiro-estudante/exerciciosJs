@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!--  Crie uma página web para sortear as cartas do jogo TRUCO para os 4 jogadores,
+conforme apresentado abaixo (nessa imagem está representado apenas as 3 cartas de 2
+jogadores. Devem ser sorteadas 12 cartas, 3 para cada jogador):-->
+<script>
+    
+    let player1 = new Array();
+    let player2 = new Array();
+    let player3 = new Array();
+    let player4 = new Array();
+    let baralho = new Array(27);
+
+    for(let i = 0; i < 27; i++){
+
+        baralho[i] = (i+1).toString();
+
+    }
+    console.log(baralho);
+
+    for(let j = 0; j < 3; j++ ){
+
+        player1.push(baralho.splice(parseInt(Math.random()*baralho.length),1).toString());
+
+        player2.push(baralho.splice(parseInt(Math.random()*baralho.length),1).toString());
+        
+
+        player3.push(baralho.splice(parseInt(Math.random()*baralho.length),1).toString());
+        
+
+        player4.push(baralho.splice(parseInt(Math.random()*baralho.length),1).toString());
+        
+    }
+
+    console.log(player1);
+    console.log(player2);
+    console.log(player3);
+    console.log(player4);
+
+    document.write(`<h1 style="text-align: center;">JOGUE TRUCO</h1>`);
+    document.write(`<p style="color: red; text-align: center;">Cartas sorteadas</p>`);
+
+    
+        document.write(`<dic style="text-align: center";>`);
+        document.write(`<br><h3>Cartas do jogador 1 :  <hr>`);
+        imprime(player1);
+        document.write(`<br><h3>Cartas do jogador 2 :  <hr>`);
+        imprime(player2);
+        document.write(`<br><h3>Cartas do jogador 3 :  <hr>`);
+        imprime(player3);
+        document.write(`<br><h3>Cartas do jogador 4 :  <hr>`);
+        imprime(player4);
+        document.write(`</div>`);
+   
+
+    function imprime(x){
+
+        document.write("<img src='cartas/carta"+x[0]+".png'>");
+        document.write("<img src='cartas/carta"+x[1]+".png'>");
+        document.write("<img src='cartas/carta"+x[2]+".png'>");
+
+    }
+
+</script>
+
+<body>
+    
+</body>
+</html>
