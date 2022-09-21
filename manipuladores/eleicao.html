@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleição</title>
+
+    <style>
+
+    
+
+        .container{
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .card{
+
+            background-color: greenyellow;
+            border: 1px solid black;
+            padding: 30px;
+            width: 200px;
+        }
+
+        img{
+            width: 200px;
+        }
+
+        h1{
+            color: red;
+            text-align: center;
+        }
+
+        p{
+
+            text-align: center;
+        }
+
+        span{
+
+            color: red;
+            font-size: 20px;
+            font-weight: bolder;
+            background-color: white;
+            padding: 10px;
+        }
+
+
+    </style>
+
+    <script>
+
+
+    if(window.openDatabase){
+
+        db = openDatabase("CPFs", "0.1", "Base de dados local", 5*1054*1024);
+
+        db.transaction(function(query){
+
+            query.executeSql("CREATE TABLE IF NOT EXISTS CPF(cpf TEXT, candidato INTEGER);");
+        });
+
+    }
+
+   
+
+
+        votar = (numCandidato) => {
+
+            let cpf = prompt ("Digite seu CPF : ");
+
+            db.transaction(function(query){
+                query.executeSql("SELECT * FROM CPF WHERE cpf ='" +cpf+"';",[], function(db, result){
+                    
+                    if(result.rows.length == 0){
+                        query.executeSql("INSERT INTO CPF( cpf, candidato) VALUES (?,?)", [cpf, numCandidato]);
+                    }else{
+                        alert("Você já VOTOU !!!");
+                    }
+
+                } )
+            });
+            
+            carregarVotos();
+        }
+
+        carregarVotos = () => {
+
+            var arr = new Array();
+            
+            for(let i = 1; i <= 4; i++){
+                db.transaction(function(query){
+                    query.executeSql("SELECT COUNT(candidato) FROM CPF WHERE candidato =" +i+";",[], function(db, result){
+                        
+                        quantidade = JSON.stringify(result.rows[0]['COUNT(candidato)']);
+                        document.getElementById(`votosCand${i}`).innerHTML = quantidade;
+
+                        arr.push(quantidade);
+                        analisaVencedor(arr);
+                      
+                    } )
+                });
+            }  
+            
+            
+        }
+
+ 
+        analisaVencedor = (arr) => {
+            
+            var maior = 0, id = 0;
+            if(arr.length == 4){
+                for (var i = 0; i < arr.length; i++) {
+                    
+                    if ( arr[i] > maior ) {
+                        maior = arr[i];
+                        id = arr.indexOf(maior);
+                    }
+                }  
+                
+                mudarCor(id+1, id+1);  
+            }
+
+           
+
+        }
+
+        
+        mudarCor = (numCandidato, id) => {
+
+            
+            const cores = ['greenyellow','blue','pink','orange','green'];
+
+            if(numCandidato == 0)
+                document.getElementById(id).style.backgroundColor = cores[numCandidato];
+            else
+                document.getElementById(`card${numCandidato}`).style.backgroundColor = cores[numCandidato];
+            
+
+        }
+
+
+
+    </script>
+
+
+</head>
+<body onload="carregarVotos()">
+    
+
+    <div class="container">
+        <div>
+            <h1>CANDIDATO 1</h1>
+            <div class="card" id="card1" onmouseover="mudarCor(1)" onmouseout="mudarCor(0, this.id)" onclick="votar(1)">
+                <p>Mickey</p>
+                <img src="imgEx02/candidato1.jpg" alt="">
+                <p>Número de votos : <span id="votosCand1">0</span></p>
+            </div>
+        </div>
+
+        <div>
+            <h1>CANDIDATO 2</h1>
+            <div class="card" id="card2" onmouseover="mudarCor(2)" onmouseout="mudarCor(0, this.id)"  onclick="votar(2)">
+                <p>Minie</p>
+                <img src="imgEx02/candidato2.jpg" alt="">
+                <p>Número de votos : <span id="votosCand2">0</span></p>
+            </div>
+        </div>
+
+        <div>
+            <h1>CANDIDATO 3</h1>
+            <div class="card" id="card3" onmouseover="mudarCor(3)" onmouseout="mudarCor(0, this.id)" onclick="votar(3)">
+                <p>Pluto</p>
+                <img src="imgEx02/candidato3.jpg" alt="">
+                <p>Número de votos : <span id="votosCand3">0</span></p>
+            </div>
+        </div>
+
+        <div>
+            <h1>CANDIDATO 4</h1>
+            <div class="card" id="card4" onmouseover="mudarCor(4)" onmouseout="mudarCor(0, this.id)" onclick="votar(4)">
+                <p>Pateta</p>
+                <img src="imgEx02/candidato4.jpg" alt="">
+                <p>Número de votos : <span id="votosCand4">0</span></p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

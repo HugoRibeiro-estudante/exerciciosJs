@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personagem</title>
+</head>
+
+<style>
+
+    *{
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    body, .container{
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 700px;
+    }
+
+
+</style>
+
+
+<script>
+
+
+    trocarImg = (idImg) => {
+        
+        imagens = ["Alegre", "Assustado", "Nervoso", "Pensativo"];
+        mensagens = [" ,vamos brincar ?", "O que você quer ?", "Não me aperte !!!", "zzzzzzzzzz !!!"];
+
+        document.getElementById("img").src = "imgEx01/"+imagens[idImg]+".png";
+        document.getElementById("msg").innerHTML = mensagens[idImg];
+
+        // let nome ="";
+
+        if(idImg == 0){
+            nome = prompt("Qual é o seu nome ?");
+            document.getElementById("msg").innerHTML = nome + mensagens[idImg];
+        }
+       
+
+    }
+
+</script>
+
+<body>
+
+    <div class="container">
+        
+        <img src="imgEx01/Pensativo.png"  id="img" 
+        onmouseover="trocarImg(1)"
+        onmouseout="trocarImg(3)"
+        onmousedown="trocarImg(2)"
+        onmouseup="trocarImg(0)"
+
+        >
+        <p id="msg"> zzzzzzzzzzzz !!!</p>
+    
+    </div>
+    
+</body>
+</html>
