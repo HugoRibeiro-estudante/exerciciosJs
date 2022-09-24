@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+
+<style>
+
+h1{
+    text-align: center;
+    color: green;
+    font-size: 50px;
+}
+
+input{
+
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 500px;
+    margin: 40px auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+</style>
+
+
+<script>
+
+    document.write(`<h1>${localStorage.getItem("nome").replace(","," ")}, seja bem-vindo ao jogo dos felinos!</h1>`);
+    document.write(`<input type="button" onclick="window.open('felino.html','_self')" value="Entrar como convidado"></input>`);
+
+</script>
+
+
+<body>
+    
+
+
+
+</body>
+
+</html>

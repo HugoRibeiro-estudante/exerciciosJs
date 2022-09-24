@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso ao sistema</title>
+</head>
+
+<script>
+
+    // alert("Olá seja bem vindo");
+
+    validate = () =>{
+    
+        let nome = document.getElementById("nome").value;
+
+        if(nome != ""){
+
+            nome = nome.split(" ");
+            if(nome.length > 1){
+
+                localStorage.setItem("nome", nome[0]+" "+nome[nome.length-1]);
+                window.open("menu.html", "_self");
+
+            }else{
+
+                msgError();
+            }
+        }else{
+
+            msgError();
+        }
+
+    }
+
+    msgError = () =>{
+
+        alert("Favor inserir seu nome completo");
+    }
+
+</script>
+
+<style>
+
+    legend, fieldset {
+        text-align: center;
+        color: green;
+    }
+
+    legend{
+        font-size: 23px;
+    }
+
+    fieldset{
+        width: 500px;
+        margin: auto;
+        padding: 20px 0px;
+    }
+
+    input[type="text"]{
+
+        width: 350px;
+        margin: 20px 0px;
+        border: none;
+        border-bottom: 3px solid green;
+        color: green;
+    }
+
+    input[type="button"]{
+        margin: 10px auto;
+        display: block;
+        padding: 10px;
+        background-color: green;
+        color: white;
+        width: 250px;
+        border: none;
+        border-radius: 10px;
+    }
+
+
+
+</style>
+
+<body>
+
+    <div>
+
+        <fieldset>
+
+            <legend>Acesso ao sistema </legend>
+            <label for="nome">Nome completo :</label>
+            <input type="text" id="nome">
+            <input type="button" value="Entrar" onclick="validate()">
+
+        </fieldset>
+
+    </div>
+
+
+</body>
+</html>
