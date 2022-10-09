@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    
+    form{
+
+        padding: 10px;
+        
+    }
+
+    input{
+        margin: 10px 0px;
+    }
+
+    input[type="text"], input[type="password"]{
+        display: block;
+    }
+
+
+</style>
+
+
+<script>
+
+    validate = () => {
+
+        if(typeof(Storage) == "undefined")
+            alert("O navegador não tem suporte ao tipo de armazenamento utilizado na aplicação");
+        else{
+
+            let user = document.getElementById("user");
+            let pass = document.getElementById("password");
+
+            if(user.value == ""){
+                alert("campo de usuário vazio !!");
+                user.focus();
+            }
+            if(pass.value == ""){
+                alert("campo de senha vazio !!");
+                pass.focus();
+            }
+            else{
+
+                let userObj = {
+                    user: user.value,
+                    password: pass.value
+                }
+
+                console.log(userObj);
+                localStorage.setItem('user', JSON.stringify(userObj));
+
+            }
+
+        }
+
+
+    }
+
+</script>
+
+<body>
+    
+    <form action="">
+        <label for="">Usuário :</label>
+        <input type="text" name="" id="user">
+        <label for="">Senha :</label>
+        <input type="password" name="" id="password">
+        <input type="button" value="Cadastrar" onclick="validate()">
+        <input type="reset" value="Limpar">
+    </form>
+
+    <a href="listarUsuario.html">Mostrar usuário cadastrado</a>
+    
+</body>
+</html>
