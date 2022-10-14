@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- Crie uma página web contendo um formulário composto por duas caixas de texto e um botão.
+Ao clicar sobre o botão a página irá aguardar 2 segundos para remover o texto da primeira
+caixa e inseri-lo na segunda caixa. -->
+<script>
+    
+    mudarTexto = () => {
+        
+        
+        text1 = document.getElementById("text1");
+        text2 = document.getElementById("text2");
+
+        text2.value = text1.value;
+        text1.value = "";
+    }
+
+</script>
+
+<body>
+    
+    <form action="">
+        <input type="text"  id="text1" value="texto">
+        <input type="text"  id="text2">
+        <input type="button" value="Trocar" onclick="setTimeout(mudarTexto,2000)">
+    </form>
+
+</body>
+</html>

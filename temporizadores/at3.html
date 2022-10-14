@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- Crie uma página web para solicitar o nome completo do usuário e, em seguida, exibi-lo no
+corpo do documento com o tamanho de fonte igual a 14 pixels. O tamanho do texto irá
+aumentar gradativamente e automaticamente até chegar o tamanho de 40 pixels. O incremento
+deverá ser de 2 em 2 pixels a cada intervalo de 0,5 segundo (meio segundo). -->
+<script>
+    
+    nome = prompt("Qual o seu nome");
+    document.write(`<p id="tag">${nome}</p>`);
+
+    size = 14;
+
+    setInterval(() => {
+        
+        if(size < 40){
+            size += 2;
+            tag.style.fontSize = size+'px';
+            alert(size);
+        }
+
+    }, 2000);
+
+
+
+</script>
+
+<body>
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- Crie uma página web para exibir a seguinte mensagem no corpo do documento “Por favor,
+aguarde X segundos para carregar a página do Google”. O valor de X deverá ser informado
+primeiro pelo usuário. O texto deverá ser exibido no corpo do documento e atualizado a cada
+1 segundo, onde o valor de X deverá ser decrementado em 1 unidade a cada segundo até chegar
+ao valor zero. Após esse critério ter sido cumprido a página do Google (www.google.com) será
+aberta na mesma aba. -->
+<script>
+    
+    time = prompt("Em quanto segundos você quer abrir o Google ? ");
+    document.write(`<p>Por favor, aguarde <span id="span">${time}</span> segundos para carregar a página do Google</p>`);
+
+    setInterval(() => {
+        
+        time -= 1;
+
+        document.getElementById("span").innerHTML = time;
+
+        if(time == 0)
+            window.open("https://www.google.com", "_self");
+        
+    }, 1000);
+    
+
+
+</script>
+
+<body>
+    
+    
+
+</body>
+</html>
