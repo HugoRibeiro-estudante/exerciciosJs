@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta ewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    form{
+        display: flex;
+        display: block;
+    }
+    
+    div{
+        margin: auto;
+        padding: 10px;
+        
+    }
+
+</style>
+
+<script src="jwifi.js"></script>
+
+<script>
+
+    validate = (x) =>{
+
+        var padrao;
+        var input;
+    
+        switch(x){
+
+            case 1: 
+                
+                input = document.getElementById("data").value;
+                
+                padrao = /^\d\d\/\d\d\/\d\d\d\d$/;
+                
+
+                break;
+
+            case 2: 
+            
+                input = document.getElementById("cpf").value;
+
+                padrao = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+
+                break;
+            case 3: 
+
+                input = document.getElementById("matricula").value;
+                //iftm-xxx/xxx-yy
+                
+                padrao = /^(I|i)(F|f)(T|t)(M|m)-\d{3}\/\d{3}-\w{2}$/;
+
+                break;
+
+            case 4: 
+
+                input = document.getElementById("cod1").value;
+                //MT-xx.xxx-IFTM
+                padrao = /^(M|m)(T|t)-\d{2}\.\d{3}-(I|i)(F|f)(T|t)(M|m)$/;
+
+                break;
+
+            case 5:      
+                
+                input = document.getElementById("cod2").value;
+                
+                padrao = /^MT-\d{2}\.\d{3}-(I|i)(F|f)(T|t)(M|m)$/;
+
+                break;
+
+            case 6:  
+
+                input = document.getElementById("cod3").value;
+                
+                padrao = /^(M|m)\s{0,1}(T|t)-\d{2}\.\d{3}-(I|i)\s{0,1}(F|f)\s{0,1}(T|t)\s{0,1}(M|m)$/;
+
+                break;
+                
+            case 7:  
+
+                input = document.getElementById("cod4").value;
+                
+                padrao = /^(M|m)\s{0,1}(T|t)-\d{2}\.\d{3}-(I|i)\s{0,1}(F|f)\s{0,1}(T|t)\s{0,1}(M|m) (Uberl(a|â)ndia|Uberl(a|â)ndia Centro)$/;
+
+                break;
+                
+            case 8:  
+
+                input = document.getElementById("nome").value;
+                
+                padrao = /^(IFTM campus Uberlândia|IFTM campus Uberlândia Centro)$/;
+
+                break;
+                
+            case 9:  
+
+                input = document.getElementById("tel1").value;
+                
+                padrao = /^\++\d{2}\(\d{2,3}\)\d{5}-\d{4}$/;
+
+                break;
+                
+            case 10:  
+
+                input = document.getElementById("tel2").value;
+                
+                padrao = /^\(\d{2,3}\)\d{5}-\d{4}$/;
+
+                break;
+                
+            case 11:  
+
+                input = document.getElementById("altura").value;
+                
+                padrao = /^(1(\.|\,)(3|4|5|6|7|8|9)\d{0,1}|2(\.|\,)(1|2|3|4|5)\d{0,1})$/;
+
+                break;
+                
+            case 12:  
+
+                input = document.getElementById("faturamento").value;
+                
+                padrao = /^R\$(\d{1,3}|\d{1,3}\.\d{3}|\d{1,3}\.\d{3}\.\d{3}|\d{1,3}\.\d{3}\.\d{3}\.\d{3}|\d{3}\.\d{3}\.\d{3}\.\d{3})\,\d{1,2}$/;
+
+                break;
+                
+            case 13: 
+
+                input = document.getElementById("cronometro").value;
+                //HH:MM:SS:CC
+                padrao = /^[0-2](0|1|2|3):[0-5][1-9]:[0-5][1-9]:[0-9][1-9]$/;
+
+                break;
+                
+            case 14: 
+            
+                input = document.getElementById("senha").value;
+                
+                // padrao = /^\w{4,}(\.|-|_)&[a-P]{1,}\.(a|e|i|o|u){1,}\.(([A-z]{1,}|[A-z]{1,}[0-5]{1,})-\D{1,}\,\W{2}\.([c-z]|[2-9])|-\D{1,}\,\W{2}\.([c-z]|[2-9]))$/;
+
+                break;
+                
+
+        }
+
+        (padrao.test(input)) ? alert("valido") : alert("invalido")
+
+
+
+    }
+
+</script>
+
+<body>
+    
+
+
+    <form action="">
+
+        <div><label >Data:</label><input type="text" id="data"  value="10/10/2022"><input type="button" value="Validar" onclick="validate(1)"></div>
+        <div><label >CPF:</label><input type="text" id="cpf" value="019.760.666-03" onkeypress="inserirMascara('cpf','000.000.000-03')"><input type="button" value="Validar" onclick="validate(2)"></div>
+        <div><label >Matricula:</label><input type="text" id="matricula" value="iftm-111/111-wy"><input type="button" value="Validar" onclick="validate(3)"></div>
+        <div><label >Código da Disciplina 1:</label><input type="text" id="cod1" value="MT-22.333-IFTM" onkeypress="inserirMascara('cod1','Mt-00.000-Iftm')"><input type="button" value="Validar" onclick="validate(4)"></div>
+        <div><label >Código da Disciplina 2:</label><input type="text" id="cod2" value="MT-22.333-IFTM" onkeypress="inserirMascara('cod1','MT-00.000-Iftm')"><input type="button" value="Validar" onclick="validate(5)"></div>
+        <div><label >Código da Disciplina 3:</label><input type="text" id="cod3" value="M T-22.333-I FT M"><input type="button" value="Validar" onclick="validate(6)"></div>
+        <div><label >Código da Disciplina 4:</label><input type="text" id="cod4" value="M T-22.333-I FT M Uberlandia Centro"><input type="button" value="Validar" onclick="validate(7)"></div>
+        <div><label >Nome do campus:</label><input type="text" id="nome" value="IFTM campus Uberlândia Centro"><input type="button" value="Validar" onclick="validate(8)"></div>
+        <div><label >Telefone 1:</label><input type="text" id="tel1" value="+55(34)99337-9793" onkeypress="inserirMascara('tel1','+00(34)00000-0000')"><input type="button" value="Validar" onclick="validate(9)"></div>
+        <div><label >Telefone 2:</label><input type="text" id="tel2" value="(034)99337-9793"><input type="button" value="Validar" onclick="validate(10)"></div>
+        <div><label >Altura:</label><input type="text" id="altura" value="1.50"><input type="button" value="Validar" onclick="validate(11)"></div>
+        <div><label >Faturamneto:</label><input type="text" id="faturamento" value="R$999.999.999.999,99"><input type="button" value="Validar" onclick="validate(12)"></div>
+        <div><label >Cronometro:</label><input type="text" id="cronometro" value="23:09:59:99" onkeypress="inserirMascara('cronometro','00:00:00:00')"><input type="button" value="Validar" onclick="validate(13)"></div>
+        <div><label >Senha:</label><input type="text" id="senha" value="321a.&apMb.aei.Ab0-asf+_,/*.cq"><input type="button" value="Validar" onclick="validate(14)"></div>
+
+    </form>
+
+</body>
+</html>
